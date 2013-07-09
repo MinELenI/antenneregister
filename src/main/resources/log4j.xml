@@ -27,7 +27,7 @@
 		<param name="locationInfo" value="true" />
 	</appender>
 	<logger name="nl.mineleni.cbsviewer">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 	<logger name="org.geotools">
 		<level value="warn" />
