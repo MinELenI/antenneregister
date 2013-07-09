@@ -1,0 +1,20 @@
+	 -----
+	 Installatie handleiding 
+	 -----
+	 mprins
+	 -----
+	 17 april 2013
+	 -----
+
+~~ http://maven.apache.org/doxia/references/apt-format.html
+
+Installatie handleiding
+
+%{toc|section=1|fromDepth=2|toDepth=2}
+
+*{Tomcat}
+
+  De applicatie wordt uitgeleverd als .war bestand dat rechtstreeks in een Tomcat servlet 
+  container kan worden gebruikt. Voor andere servlet engines zijn mogelijk extra of 
+  aangepaste configuraties nodig.
+  

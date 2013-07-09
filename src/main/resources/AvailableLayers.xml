@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Layers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xml.util.cbsviewer.mineleni.nl" xsi:schemaLocation="http://xml.util.cbsviewer.mineleni.nl AvailableLayers.xsd ">
+	<Layerdescriptor>
+		<id>antenneregister</id>
+		<name>Antenneregister</name>
+		<layers>5</layers>
+		<url>http://gisdemo2.agro.nl/arcgis/services/Locaties/MapServer/WMSServer</url>
+		<styles>default</styles>
+		<attributes>TOEPASSING, ANT_HOOGTE, OPSTELPLAATS</attributes>
+		<aliases>Type, hoogte (m), plaats</aliases>
+	</Layerdescriptor>
+</Layers>

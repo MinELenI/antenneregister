@@ -1,0 +1,41 @@
+/*
+	overrides of cbsviewer styles
+*/
+.settingsPanel {
+	top: 180px;
+	width: 254px;
+	overflow-x: visible;
+}
+
+.subtitel {
+	margin-bottom: 0;
+}
+
+.page .header .h1 {
+
+}
+
+.page .header .mainMenu {
+	left: 500px;
+}
+
+#zoekContainer {
+	background-image: none;
+	width: 500px;
+	top: 83px;
+}
+
+#zoekContainer fieldset {
+	background-color: $BlueColour;
+	background-image: none;
+	@include border-right-radius(3px);
+	padding: 6px 0 6px 1px;
+	height: 34px;
+	border: none;
+	width: auto;
+}
+
+#footerWrapper {
+	width: 600px;
+	@include border-right-radius(3px);
+}

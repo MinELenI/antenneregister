@@ -1,6 +1,9 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+.settings/
+.project
+.classpath
+/cache/
+/target/
+/mvn.log
+/notes.txt
+Thumbs.db
+/nb-configuration.xml

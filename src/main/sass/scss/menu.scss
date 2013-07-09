@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+/* compass css mixins */
+@import 'compass/css3';
+
+@import 'colours';
+@import 'overrides';
+
+$ControlBorder: 1px solid $ControlBorderColour ;
+
+/**
+	dropdown nokmenu menu vars.
+*/
+$magicWidth: 500px;
+$magicOffscreenMargin: 32767px;
+$magicPadding: 5px;
+$magicLineHeight: 25px;
+
+/*
+.nokmenu {
+	z-index: 1005;
+	position: absolute;
+	left: 1px;
+	top: 160px;
+	padding-right: $magicPadding;
+	background-color: $BlueColour;
+	background-color: $BlueColourTransp;
+	color: #fff;
+	border: $ControlBorder;
+	min-width: $magicWidth /2 ;
+	@include border-right-radius(3px);
+}
+
+@media print {
+	.nokmenu {
+		display: none;
+	}
+}
+*/
+#downloadLink a {
+	background: transparent url(../img/opendata.png) 0px 1px no-repeat;
+	padding-left: 18px;
+}
+
+.metadata {
+	background: transparent url(../img/metadata.png) 0px 1px no-repeat;
+	padding-left: 18px;
+}
+
+.extern {
+	
+}
+/*
+.kaartkeuze_wrapper {
+	position: relative; 
+	height: $magicLineHeight;
+}
+
+.kaartkeuze {
+	position: absolute; 
+	z-index: 100;
+	line-height: $magicLineHeight;
+}
+
+ul.menu {
+	padding: 0; 
+	margin: 0; 
+	list-style: none; 
+	overflow: hidden; 
+	float: left; 
+	margin-right: 1px;
+
+	& a {
+		// voor <ie9
+		background: $BlueColour;
+		background: $BlueColourTransp;
+		text-decoration: none; 
+		color: #fff; 
+		padding-left: $magicPadding;
+	}
+
+	& li.list {
+		float: left;
+		width: $magicWidth;
+		margin: -$magicOffscreenMargin $magicWidth/-2 0 0;
+		
+		& a.category {
+			position: relative;
+			z-index: 50;
+			display: block;
+			float: left;
+			width: $magicWidth/2 - $magicPadding;
+			margin-top: $magicOffscreenMargin;
+			background: transparent;
+		
+			&:hover,
+			&:focus,
+			&:active {
+				margin-right:1px;
+			}
+		}
+	}
+}
+
+ul.kaartkeuzelijst {
+	float: left; 
+	padding: $magicLineHeight 0 0 0; 
+	margin: 0; 
+	list-style: none; 
+	margin: -$magicLineHeight 0 0 0;
+
+	& a:hover,
+	& a:focus,
+	& a:active {
+		background: $BlueColourDarker;
+		margin-right: 1px;
+		color: #fff;
+	}
+
+	& li a {
+		float: left;
+		width: $magicWidth/2 - $magicPadding;
+		clear: left;
+		// voor <ie9
+		background: $BlueColour;
+		background: $BlueColourTransp;
+		color: #fff;
+	}
+}
+*/

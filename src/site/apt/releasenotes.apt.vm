@@ -1,0 +1,35 @@
+	 -----
+	 Release notes 
+	 -----
+	 mprins
+	 -----
+	 17 april 2013
+	 -----
+
+~~ http://maven.apache.org/doxia/references/apt-format.html
+
+
+${project.name} ${project.version} Release Notes
+
+  Dit zijn de release notes van ${project.name} versie ${project.version}. 
+
+%{toc|section=1|fromDepth=2|toDepth=2}
+
+* ${project.version} Release Notes
+
+  Een complete lijst van de issues van deze release wordt gegeven in de tracker 
+  {{{https://github.com/MinELenI/NOKviewer/issues?milestone=0&state=closed}milestone ${project.version}}}
+
+** Verbetering
+  
+  * uitbreiding documentatie
+  
+  []
+  
+** Nieuw
+
+  * 
+  
+  []
+
+

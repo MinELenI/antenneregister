@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>${project.name}</display-name>
+	<description>${project.description}</description>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error.jsp</location>
+	</error-page>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<description>reverse proxy servlet om XHR te laten werken, binnen de applicatie wordt alleen het GetFeatureInfo 
+			request via deze proxy geleid</description>
+		<display-name>ReverseProxyServlet</display-name>
+		<servlet-name>ReverseProxyServlet</servlet-name>
+		<servlet-class>nl.mineleni.cbsviewer.servlet.ReverseProxyServlet</servlet-class>
+		<init-param>
+			<description>Servers die zijn toegestaan om te benaderen via deze proxy, scheiden door een ; [punt-komma]</description>
+			<param-name>allowed_hosts</param-name>
+			<param-value>gisdemo2.agro.nl</param-value>
+		</init-param>
+		<init-param>
+			<description>FeatureInfo response type</description>
+			<param-name>featureInfoType</param-name>
+			<param-value>HTMLTYPE</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReverseProxyServlet</servlet-name>
+		<url-pattern>/xhr</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>WMS client</description>
+		<display-name>WMSClientServlet</display-name>
+		<servlet-name>WMSClientServlet</servlet-name>
+		<servlet-class>nl.mineleni.cbsviewer.servlet.wms.WMSClientServlet</servlet-class>
+		<!-- NB. deze pdok service is alleen voor whitelisted IP's beschikbaar. 
+			Voor een alternatief (wheregroup.com) zie hieronder. -->
+		<!--
+		<init-param>
+			<description>WMS capabilities url van achtergrond (topografie) kaart</description>
+			<param-name>bgCapabilitiesURL</param-name>
+			<param-value>http://geodata.nationaalgeoregister.nl/brtachtergrondkaart/ows?REQUEST=GetCapabilities&amp;SERVICE=WMS</param-value>
+		</init-param>
+		<init-param>
+			<description>lagen voor de achtergrond (topografie) WMS (CSV), 
+					in volgorde "bovenste" laag eerste, "onderste" laag als laatste in de lijst. 
+					Indien leeg dan worden alle lagen uit het capabilities document gebruikt.</description>
+			<param-name>bgWMSlayers</param-name>
+			<param-value>top10nlfunctioneelgebiedlabels,gemeentenamen,top10nlgeografischgebiedlabels, 
+					top10nlgebouwen,top10nlprovinciegrenzen,top10nlnationalegrenzen, 
+					top10nlspoorbaandeellijnen,top10nlwaterdeellijnen, top10nlwaterdeelvlakken, points,countries,
+					top250nllijnen,lines,borders, top250nlvlakken,builtup_areas,polygons,shorelines, ondergrond</param-value>
+		</init-param>
+		-->
+		<!-- Alternatieve basemap van WhereGroup, voor ontwikkeldoeleinden. 
+			zie: http://www.wheregroup.com/de/osmwms -->
+		<!--
+		<init-param>
+			<description>WMS capabilities url van achtergrond (topografie) kaart</description>
+			<param-name>bgCapabilitiesURL</param-name>
+			<param-value>http://osm.wheregroup.com/cgi-bin/osm_basic.xml?REQUEST=GetCapabilities&amp;SERVICE=WMS&amp;VERSION=1.1.1</param-value>
+		</init-param>
+		<init-param>
+			<description>lagen voor de achtergrond (topografie) WMS (CSV), 
+					in volgorde "bovenste" laag eerste, "onderste" laag als laatste in de lijst. 
+					Indien leeg dan worden alle lagen uit het capabilities document gebruikt.</description>
+			<param-name>bgWMSlayers</param-name>
+			<param-value>Bahn, Grossstadt,Stadt,Dorf,Stadtteil,Weiler,Ortschaft, 
+				Autobahn,Kraftfahrstrasse,Bundesstrasse,Landstrasse,einfache_Strasse,Zufahrtswege,Wohnstrasse,Wege, 
+				Inselpunkte,Kueste,Insel,Wasserbecken,Kanal,Baeche,Fluesse,Wasser,Gebaeude,Fussgaengerzone,Wiese,Wald,
+				Naherholungsgebiet,Park,unkultiviertes_Land,Gruenflaeche,Bauland,Industriegebiet,Landwirtschaft,Grenzen</param-value>
+		</init-param>
+		-->
+		<init-param>
+			<description>WMS capabilities url van achtergrond (topografie) kaart</description>
+			<param-name>bgCapabilitiesURL</param-name>
+			<param-value>http://www.openbasiskaart.nl/mapcache/?SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetCapabilities</param-value>
+		</init-param>
+		<init-param>
+			<description>lagen voor de achtergrond (topografie) WMS (CSV), 
+					in volgorde "bovenste" laag eerste, "onderste" laag als laatste in de lijst. 
+					Indien leeg dan worden alle lagen uit het capabilities document gebruikt.</description>
+			<param-name>bgWMSlayers</param-name>
+			<param-value>osm-nb</param-value>
+		</init-param>
+		<init-param>
+			<description>WMS capabilities url van achtergrond luchtfoto's</description>
+			<param-name>lufoCapabilitiesURL</param-name>
+			<param-value>http://geodata1.nationaalgeoregister.nl/luchtfoto/wms?request=GetCapabilities</param-value>
+		</init-param>
+		<init-param>
+			<description>lagen voor de achtergrond (luchtfoto) WMS (CSV), 
+				in volgorde "bovenste" laag eerste, "onderste" laag als laatste in de lijst. 
+				Indien leeg dan worden alle lagen uit het capabilities document gebruikt.</description>
+			<param-name>lufoWMSlayers</param-name>
+			<param-value />
+		</init-param>
+		<init-param>
+			<description>FeatureInfo response type</description>
+			<param-name>featureInfoType</param-name>
+			<param-value>HTMLTYPE</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WMSClientServlet</servlet-name>
+		<url-pattern>/kaart</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description>Zoekt adressen op in de online service</description>
+		<display-name>AdresZoekServlet</display-name>
+		<servlet-name>AdresZoekServlet</servlet-name>
+		<servlet-class>nl.mineleni.cbsviewer.servlet.gazetteer.AdresZoekServlet</servlet-class>
+		<init-param>
+			<description>url van de gazetteer service</description>
+			<param-name>openlsserverurl</param-name>
+			<param-value>http://geodata.nationaalgeoregister.nl/geocoder/Geocoder</param-value>
+		</init-param>
+		<init-param>
+			<description>max. aantal (op het scherm) weer te geven resultaten config parameter</description>
+			<param-name>openlsmaxresults</param-name>
+			<param-value>20</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdresZoekServlet</servlet-name>
+		<url-pattern>/adres</url-pattern>
+	</servlet-mapping>
+	<listener>
+		<listener-class>nl.mineleni.cbsviewer.servlet.GeotoolsContextListener</listener-class>
+	</listener>
+</web-app>
