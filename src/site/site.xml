@@ -42,10 +42,12 @@
 			<item name="CI deployed webapp" href="http://gisdemo.agro.nl/antenneregister/" />
 		</menu>
 		<menu name="WCAG testing">
+			<!--
 			<item name="Webrichtlijnen Quickscan RIA"
 				href="http://versie1.webrichtlijnen.nl/toetsen/report/193203/383821/" />
 			<item name="Webrichtlijnen Quickscan CORE"
 				href="http://versie1.webrichtlijnen.nl/toetsen/report/193203/383822/" />
+			-->
 			<item name="CSS 3 validatie"
 				href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fgisdemo.agro.nl%2Fantenneregister%2F&amp;profile=css21&amp;usermedium=all&amp;warning=1&amp;vextwarning=&amp;lang=nl" />
 			<item name="CSS 2.1 validatie"

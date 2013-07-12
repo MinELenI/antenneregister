@@ -18,7 +18,7 @@ ${project.name} ${project.version} Release Notes
 * ${project.version} Release Notes
 
   Een complete lijst van de issues van deze release wordt gegeven in de tracker 
-  {{{https://github.com/MinELenI/NOKviewer/issues?milestone=0&state=closed}milestone ${project.version}}}
+  {{{https://github.com/MinELenI/antenneregister/issues?milestone=0&state=closed}milestone ${project.version}}}
 
 ** Verbetering
   
