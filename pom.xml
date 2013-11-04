@@ -47,7 +47,7 @@
 		<notifiers />
 	</ciManagement>
 	<prerequisites>
-		<maven>3.0.4</maven>
+		<maven>3.1.1</maven>
 	</prerequisites>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -179,7 +179,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.3</version>
+				<version>2.4</version>
 				<configuration>
 					<useCache>true</useCache>
 					<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
@@ -236,7 +236,7 @@
 						<plugin>
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>versions-maven-plugin</artifactId>
-							<version>2.0</version>
+							<version>2.1</version>
 							<reportSets>
 								<reportSet>
 									<reports>
@@ -254,7 +254,7 @@
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-project-info-reports-plugin</artifactId>
-							<version>2.6</version>
+							<version>2.7</version>
 							<reportSets>
 								<reportSet>
 									<reports>
@@ -324,7 +324,7 @@
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.8</version>
+				<version>0.9</version>
 				<configuration>
 					<message>site update voor versie ${project.version} ( rev. ${buildNumber} )</message>
 					<password>${github.password}</password>
@@ -344,7 +344,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.4.1</version>
+				<version>2.4.2</version>
 				<configuration>
 					<pushChanges>false</pushChanges>
 				</configuration>
